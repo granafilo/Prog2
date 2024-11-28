@@ -21,6 +21,7 @@ along with this file.  If not, see <https://www.gnu.org/licenses/>.
 
 package it.unimi.di.prog2.e03;
 
+import java.util.*;
 /**
  * Vedi <a
  * href="https://github.com/mapio/labprog/blob/master/esercizi/lettera_piu_frequente/Testo.md">testo</a>,
@@ -30,15 +31,25 @@ public class LetteraPiùFrequente {
   /** . */
   private LetteraPiùFrequente() {}
 
-  /*- Completa il seguente main
+  /*- Completa il seguente main */
 
   public static void main(String[] args) {
+    int[] map = new int['z'-'a'+1];
+    int i = 0, max = 0;
+    char l;
     try (Scanner s = new Scanner(System.in)) {
       while (s.hasNext()) {
         final String parola = s.nextLine();
+        for(i = 0; i < parola.length(); i++){
+          l = parola.charAt(i);
+          if (l != ' ' && l != '\n')
+            map[l-'a']++;
+        }
       }
     }
+    for(int v : map){
+      max = Math.max(max, v);
+    }
+    System.out.println(max);
   }
-
-  */
 }

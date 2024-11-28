@@ -30,11 +30,31 @@ public class GeneraQuadratoMagico {
   /** . */
   private GeneraQuadratoMagico() {}
 
-  /*- Completa il seguente main
+  /*- Completa il seguente main*/
 
   public static void main(String[] args) {
     final int N = Integer.parseInt(args[0]);
-  }
+    int[][] quadrato = new int[N][N];
+    int cont = 0, i = 0, j = Math.floorDiv(N,2);
 
-  */
+    int cap = N*N;
+    while (cont < cap) {
+      cont++;
+      quadrato[i][j] = cont;
+      i--;
+      if (i < 0) i = N-1;
+      j = (j+1)%N;
+      if (quadrato[i][j] != 0){
+        i = (i+2)%N; 
+        j--;
+      } 
+    }
+
+    for(int righe = 0; righe < N; righe++) {
+      for (int colonne = 0; colonne < N; colonne++) {
+        System.out.print(quadrato[righe][colonne] + " ");
+      }
+      System.out.println();
+    }
+  }
 }
