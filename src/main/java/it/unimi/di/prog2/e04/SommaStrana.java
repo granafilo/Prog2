@@ -21,6 +21,8 @@ along with this file.  If not, see <https://www.gnu.org/licenses/>.
 
 package it.unimi.di.prog2.e04;
 
+import java.util.Vector;
+
 /**
  * Vedi <a
  * href="https://github.com/mapio/labprog/blob/master/esercizi/somma_strana/Testo.md">testo</a>, ma
@@ -43,5 +45,8 @@ public class SommaStrana {
   // int y = interi.get(0);
   //
   // dove vengono messi e prelevati dalla lista degli int, non degli Integer.
+
+  public static void main(String[] args) {
+  }
 
 }

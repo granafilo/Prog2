@@ -35,18 +35,19 @@ public class GeneraQuadratoMagico {
   public static void main(String[] args) {
     final int N = Integer.parseInt(args[0]);
     int[][] quadrato = new int[N][N];
-    int cont = 0, i = 0, j = Math.floorDiv(N,2);
+    int cont = 0,i = 0, j = Math.floorDiv(N,2);
 
     int cap = N*N;
-    while (cont < cap) {
-      cont++;
+
+    while (cont++ < cap) {
       quadrato[i][j] = cont;
       i--;
-      if (i < 0) i = N-1;
       j = (j+1)%N;
+      if (i < 0) i = N-1;
       if (quadrato[i][j] != 0){
         i = (i+2)%N; 
         j--;
+        if (j < 0) j = N-1;
       } 
     }
 
