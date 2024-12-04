@@ -19,7 +19,7 @@ along with this file.  If not, see <https://www.gnu.org/licenses/>.
 
 */
 
-package it.unimi.di.prog2.h18;
+package it.unimi.di.prog2.h18.refactored;
 
 import java.util.Scanner;
 
@@ -30,17 +30,26 @@ public class IntSetsClient {
   private IntSetsClient() {}
 
   /**
-   * Tests some methods of {@link IntSet} and {@link OrderedIntSet}.
+   * Tests some methods of {@link IntSet}, {@link OrderedIntSet} and {@link PreallocatedIntSet}.
    *
    * <p>This method reads integers from standard input and inserts them into a set, then it emits
-   * the set size and elements in the standard output. The first parameter tells weather the set
-   * should be ordered or not.
+   * the set size and elements in the standard output. The first parameter tells which
+   * implementation to use.
    *
    * @param args if the set should be ordered.
    */
   public static void main(String[] args) {
-    final boolean ordered = args.length > 0 && args[0].equals("true");
-    AbstractIntSet set = ordered ? new OrderedIntSet() : new IntSet();
+    if (args.length != 1)
+      throw new IllegalArgumentException("There must one command line argument.");
+    AbstractIntSet set =
+        switch (args[0]) {
+          case "i" -> new IntSet();
+          case "o" -> new OrderedIntSet();
+          case "p" -> new PreallocatedIntSet();
+          default ->
+              throw new IllegalArgumentException(
+                  "Unknown set type, must be one of 'i', 'o', or 'p'.");
+        };
     try (Scanner sc = new Scanner(System.in)) {
       while (sc.hasNextInt()) set.insert(sc.nextInt());
     }

@@ -19,18 +19,10 @@ along with this file.  If not, see <https://www.gnu.org/licenses/>.
 
 */
 
-package it.unimi.di.prog2.h18;
+package it.unimi.di.prog2.h18.refactored;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
-
-/** A concrete set of integer. */
-public class IntSet extends AbstractIntSet {
-
-  /** The set elements. */
-  private final List<Integer> elements;
+/** A concrete set of integers. */
+public class IntSet extends ListBasedAbstractIntSet {
 
   /*-
    * AF(elements, size) = { elements.get(0), elements.get(1), ..., elements.get(size - 1) }
@@ -40,14 +32,7 @@ public class IntSet extends AbstractIntSet {
    */
 
   /** Creates an empty set. */
-  public IntSet() {
-    this.elements = new ArrayList<>();
-  }
-
-  @Override
-  public Iterator<Integer> iterator() {
-    return Collections.unmodifiableCollection(elements).iterator();
-  }
+  public IntSet() {}
 
   @Override
   public void insert(int x) {
@@ -57,10 +42,5 @@ public class IntSet extends AbstractIntSet {
       elements.add(x);
       size++;
     }
-  }
-
-  @Override
-  public void remove(int x) {
-    if (elements.remove(Integer.valueOf(x))) size--;
   }
 }

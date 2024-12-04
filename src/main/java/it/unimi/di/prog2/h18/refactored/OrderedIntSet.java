@@ -19,12 +19,9 @@ along with this file.  If not, see <https://www.gnu.org/licenses/>.
 
 */
 
-package it.unimi.di.prog2.h18;
+package it.unimi.di.prog2.h18.refactored;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
 import java.util.NoSuchElementException;
 
 /**
@@ -32,10 +29,7 @@ import java.util.NoSuchElementException;
  *
  * <p>The iterator of this set returns the elements in ascending order.
  */
-public class OrderedIntSet extends AbstractIntSet {
-
-  /** The set elements. */
-  private final List<Integer> elements;
+public class OrderedIntSet extends ListBasedAbstractIntSet {
 
   /*-
    * AF(elements, size) = { elements.get(0), elements.get(1), ..., elements.get(size - 1) }
@@ -46,9 +40,7 @@ public class OrderedIntSet extends AbstractIntSet {
    */
 
   /** Creates an empty set. */
-  public OrderedIntSet() {
-    this.elements = new ArrayList<>();
-  }
+  public OrderedIntSet() {}
 
   /**
    * Returns the maximum element of this set.
@@ -73,8 +65,9 @@ public class OrderedIntSet extends AbstractIntSet {
   }
 
   @Override
-  public Iterator<Integer> iterator() {
-    return Collections.unmodifiableList(elements).iterator();
+  public boolean isIn(int x) {
+    // this improves to O(log n) the O(n) super implementation
+    return Collections.binarySearch(elements, x) >= 0;
   }
 
   @Override
@@ -84,10 +77,5 @@ public class OrderedIntSet extends AbstractIntSet {
       elements.add(-index - 1, x);
       size++;
     }
-  }
-
-  @Override
-  public void remove(int x) {
-    if (elements.remove(Integer.valueOf(x))) size--;
   }
 }
