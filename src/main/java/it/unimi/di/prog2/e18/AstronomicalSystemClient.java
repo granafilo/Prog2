@@ -19,37 +19,32 @@ along with this file.  If not, see <https://www.gnu.org/licenses/>.
 
 */
 
-package it.unimi.di.prog2.e03;
+package it.unimi.di.prog2.e18;
 
-import java.util.*;
 /**
- * Vedi <a
- * href="https://github.com/mapio/labprog/blob/master/esercizi/lettera_piu_frequente/Testo.md">testo</a>,
+ * Allows verification of the behavior of an astronomical system.
+ *
+ * <p>For more details, see the <em>overview</em> of this package.
  */
-public class LetteraPiùFrequente {
+public class AstronomicalSystemClient {
 
   /** . */
-  private LetteraPiùFrequente() {}
+  private AstronomicalSystemClient() {}
 
-  /*- Completa il seguente main */
+  /**
+   * Simulates an astronomical system.
+   *
+   * <p>Reads the information of celestial bodies from standard input, and simulates the system for
+   * the number of steps specified as the first argument on the command line; hence it emits on the
+   * standard error the state of the system and the total energy.
+   *
+   * @param args the number of simulation steps.
+   */
+
+  /* - uncomment and provide the implementation
 
   public static void main(String[] args) {
-    int[] map = new int['z'-'a'+1];
-    int i = 0, max = 0;
-    char l;
-    try (Scanner s = new Scanner(System.in)) {
-      while (s.hasNext()) {
-        final String parola = s.nextLine();
-        for(i = 0; i < parola.length(); i++){
-          l = parola.charAt(i);
-          if (l != ' ' && l != '\n')
-            map[l-'a']++;
-        }
-      }
-    }
-    for(int v : map){
-      max = Math.max(max, v);
-    }
-    System.out.println(max);
   }
+
+  */
 }
