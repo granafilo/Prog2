@@ -12,7 +12,7 @@ public class SommaStrana {
     try (Scanner s = new Scanner(System.in)) {
         while (s.hasNext()) {
             final String linea = s.nextLine();
-            ArrayList<Integer> numeri = new ArrayList<>(linea.length); 
+            Vector<Integer> numeri = new Vector<>(linea.length()); 
             for (char c : linea.toCharArray()) {
                 if (Character.isDigit(c)) {
                     numeri.add(Character.getNumericValue(c));
