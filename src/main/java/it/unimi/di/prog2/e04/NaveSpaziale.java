@@ -25,18 +25,31 @@ package it.unimi.di.prog2.e04;
  * Vedi <a
  * href="https://github.com/mapio/labprog/blob/master/esercizi/nave_spaziale/Testo.md">testo</a>.
  */
+
+import java.util.*;
+
 public class NaveSpaziale {
 
-  /** . */
+  public static int potenza(int from){
+    return (int) Math.pow(from, 4);
+  }
+
   private NaveSpaziale() {}
+  public static void main(String[] args) {
+    int from = Integer.parseInt(args[0]);
+    int to = Integer.parseInt(args[1]);
+    String output = ""; 
+      while(true){
+        if(potenza(from) < to){
+          String pString = String.join("", Collections.nCopies(Math.max(0, to - from), "P")); 
+          output = output + pString;
+          break;
+        }else{
+          output+= "S";
+          from = from*2;
+        }
+      }
 
-  // Se String[] args è il vettore che contiene gli argomenti sulla linea
-  // di comando, potete convertire i primi due in numeri interi con le
-  // dichiarazioni (e inizializzazioni) seguenti
-  //
-  // int from = Integer.parseInt(args[0]);
-  // int to = Integer.parseInt(args[1]);
-  //
-  // non c'è bisogno di importare alcun package per poter usare Integer.
-
+    System.out.println(output);
+  }
 }
