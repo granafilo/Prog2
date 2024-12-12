@@ -30,9 +30,8 @@ public class BoundingBox {
     /*- Completa il seguente main */
     public static void main(String[] args) {
         List<String> lista = new ArrayList<>();
-        int altezza = 0, larghezza = 0;
+        int larghezza = 0;
         int altezzaMassima = 0, larghezzaMassima = 0, primoIndiceL = -1, ultimoIndiceL = -1, i = 0, j = 0, primoIndiceA = -1, ultimoIndiceA = -1;
-        boolean rigaCompresa = false, ultimoChar = true;
         try (Scanner s = new Scanner(System.in)){
             while (s.hasNext()) {
                 final String linea = s.nextLine(); // il final rende non modificabile la linea ricevuta in input

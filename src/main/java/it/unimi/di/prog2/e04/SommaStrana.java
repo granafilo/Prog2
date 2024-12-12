@@ -6,7 +6,7 @@ public class SommaStrana {
   private SommaStrana() {}
   public static void main(String[] args) {
     Vector<Vector<Integer>> interi = new Vector<>();
-    int max = 0, iter = 0, i = 0, j = 0, s1 = 0, s2 = 0, somma = 0, riporto = 0;
+    int max = 0, i = 0, j = 0, s1 = 0, s2 = 0, somma = 0, riporto = 0;
 
     //inserisco in un vettore all'interno di un'altro vettore tutti i numeri che ricevo in input
     try (Scanner s = new Scanner(System.in)) {
